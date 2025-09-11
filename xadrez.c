@@ -63,6 +63,11 @@ int main() {
     for(Rainha = 1; Rainha <= 8; Rainha++) {
         printf("Esquerda\n");
     }
+
+    //Usei else para imprimir o printf de opção inválida, tente novamente caso o usuário digite um valor que o menu não contenha
+} else {
+
+    printf("Opção inválida. Tente Novamente!");
 }
 
     // Nível Aventureiro - Movimentação do Cavalo
