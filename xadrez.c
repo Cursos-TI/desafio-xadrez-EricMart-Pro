@@ -13,12 +13,14 @@ int main() {
     int Bispo = 1;
     int Torre = 1;
     int Rainha = 1;
+    int Cavalo = 1;
 
     printf("### Jogo de Xadrez ###\n"); //Utilizei printf para imprimir o menu com as opções de peças para mover e para solicitar a um número referente à opção ao usuário
     printf("Escolha qual peça deseja movimentar:\n");
     printf("1. Bispo\n");
     printf("2. Torre\n");
     printf("3. Rainha\n");
+    printf("4. Cavalo\n");
     printf("Digite o número correspondente a peça: ");
     scanf("%d", &opcao);// O scanf vai armazenar o valor que o usuário digitar na variável opcao
 
@@ -35,6 +37,7 @@ int main() {
 
         
         printf("Cima, Direita\n");
+        printf("\n");
         Bispo++; 
 
     }
@@ -49,6 +52,7 @@ int main() {
     do{
         
         printf("Direita\n");
+        printf("\n");
         Torre++;
         
     }while (Torre <= 5);
@@ -62,6 +66,28 @@ int main() {
 
     for(Rainha = 1; Rainha <= 8; Rainha++) {
         printf("Esquerda\n");
+        printf("\n");
+    }
+
+// Nível Aventureiro - Movimentação do Cavalo
+    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
+    // Um loop pode representar a movimentação horizontal e outro vertical.
+    //Se o usuário escolher a opção 4, o else-if desse condição vai ser ativado
+    //A variavél da peça do cavalo vai ser decrementada em 1 e, já que seu valor antes disso será 1, o bloco de códido desse loop while vai ser executado apenas uma vez
+     //Criei e inicializei a variável direcao com valor igual a 0
+    //A condição para repetir o bloco de código do loop for é que essa variável seja menor que 2
+     //Após a execução do bloco de código do loop for, a variável direcao vai ser incrementada em 1 até que a condição se torne falsa, o que vai resultar em 2 repetições
+    //usei printf para imprimir os movimentos -> Baixo e esquerda
+
+}else if (opcao == 4) { 
+    while (Cavalo--) 
+    {
+        
+        for (int direcao = 0; direcao < 2; direcao++) { 
+            printf("Baixo\n");
+        }
+        printf("Esquerda\n");
+        printf("\n");
     }
 
     //Usei else para imprimir o printf de opção inválida, tente novamente caso o usuário digite um valor que o menu não contenha
@@ -70,9 +96,8 @@ int main() {
     printf("Opção inválida. Tente Novamente!");
 }
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    
+            
 
     // Nível Mestre - Funções Recursivas e Loops Aninhados
     // Sugestão: Substitua as movimentações das peças por funções recursivas.
