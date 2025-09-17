@@ -4,6 +4,42 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
+void moverTorre (int casas) {
+    if(casas > 0) {
+
+        printf("Direita\n");
+        moverTorre (casas - 1);
+        
+
+    }
+    printf("\n");
+}
+
+void moverRainha (int casas) {
+    if(casas > 0) {
+        printf("Esquerda\n");
+        moverRainha (casas - 1);
+        
+    }
+    printf("\n");
+}
+
+void moverBispo (int casasVerticais) {
+
+
+       for(casasVerticais; casasVerticais > 0; casasVerticais--) {
+
+            printf("Cima,");
+            for(int casasHorizontais = 1; casasHorizontais > 0; casasHorizontais--) {
+                printf(" Direita\n");
+            }
+            
+       }
+
+    printf("\n");
+
+}
+
 int main() {
     // Nível Novato - Movimentação das Peças
     // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
@@ -33,14 +69,7 @@ int main() {
 
 
     if(opcao == 1) { 
-    while (Bispo <= 5) { 
-
-        
-        printf("Cima, Direita\n");
-        printf("\n");
-        Bispo++; 
-
-    }
+    moverBispo(5);
     // Implementação de Movimentação da Torre
     // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
     //Usei else-if para ativar o do-while caso a opção seja o número 2
@@ -49,13 +78,7 @@ int main() {
 
 } else if (opcao == 2) {
 
-    do{
-        
-        printf("Direita\n");
-        printf("\n");
-        Torre++;
-        
-    }while (Torre <= 5);
+    moverTorre(5);
 
     // Implementação de Movimentação da Rainha
     // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
@@ -64,32 +87,39 @@ int main() {
     //A condição é que a variavél rainha deve ser menor ou igual à 8 para que o bloco de código seja executado, o que vai resultar em 8 execuções
 } else if(opcao == 3) {
 
-    for(Rainha = 1; Rainha <= 8; Rainha++) {
-        printf("Esquerda\n");
-        printf("\n");
-    }
+    moverRainha(8);
 
 // Nível Aventureiro - Movimentação do Cavalo
     // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
     // Um loop pode representar a movimentação horizontal e outro vertical.
-    //Se o usuário escolher a opção 4, o else-if desse condição vai ser ativado
-    //A variavél da peça do cavalo vai ser decrementada em 1 e, já que seu valor antes disso será 1, o bloco de códido desse loop while vai ser executado apenas uma vez
-     //Criei e inicializei a variável direcao com valor igual a 0
-    //A condição para repetir o bloco de código do loop for é que essa variável seja menor que 2
-     //Após a execução do bloco de código do loop for, a variável direcao vai ser incrementada em 1 até que a condição se torne falsa, o que vai resultar em 2 repetições
-    //usei printf para imprimir os movimentos -> Baixo e esquerda
+    //Se o usuário escolher a opção 4, o else-if dessa condição vai ser ativado
+    //Criei variavéis internas do tipo int no loop for externo e interno chamadas "casasVerticais" para representar o movimento vertical do cavalo e "casasHorizontais" para representar o movimento horizontal da peça
+    //As variavéis vão armazenar valores inteiros
+    //A variável do eixo vertical vai inicializar com valor zero e irá ser incrementada em 1 depois da execução do bloco de código , até que a condição de ter que ser menor do que 2 para a execução do bloco de código seja falsa
+    //Usei a função if e o código break para indicar que quando a variável do eixo vertical for igual a 1, o bloco de código do loop externo não seja mais executado, o que resultará em apenas 2 movimentos para cima e 1 movimento para Direita
+    //Usei o loop for interno para inicializar a variável do eixo horizontal com valor igual a 0, criar a condição de ter que ser menor que 3, e para incrementar o valor dela em 1 após cada execução até que a condição se torne falsa
+    //Usei a função if e o código break para indicar que quando a variável do eixo horizontal for igual a 1, o bloco de código não seja executado nessa parte, o que resultará em apenas 2 movimentos para cima e 1 movimento para Direita, uma vez que para cada execução do loop externo, há uma execução completa do loop interno
+    //Usei printf para exibir os movimentos e para colocar uma linha em branco após terminar o loop aninhado
 
 }else if (opcao == 4) { 
-    while (Cavalo--) 
-    {
-        
-        for (int direcao = 0; direcao < 2; direcao++) { 
-            printf("Baixo\n");
-        }
-        printf("Esquerda\n");
-        printf("\n");
+   for(int casasVerticais = 0; casasVerticais < 2; casasVerticais++) {
+
+    if(casasVerticais == 1) break;
+
+    for(int casasHorizontais = 0; casasHorizontais < 3; casasHorizontais++){
+
+        if(casasHorizontais == 1) continue;
+
+        printf("Cima\n");
+
     }
 
+    
+    printf("Direita\n");
+
+   }
+
+   printf("\n");
     //Usei else para imprimir o printf de opção inválida, tente novamente caso o usuário digite um valor que o menu não contenha
 } else {
 
