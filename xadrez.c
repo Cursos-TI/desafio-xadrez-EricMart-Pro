@@ -4,6 +4,11 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
+//Usei a função void, que significa vazio ou que não tem um tipo, para armazenar um procedimento com nome de "moverTorre", no qual há uma variável criada entre parênteses do tipo int, a qual também está dentro do if para especificar a condição de que o valor da variável deve ser maior que 0 para se poder executar o bloco de código, ou seja, para mover a peça
+//Usei printf para imprimir o movimento e para criar uma linha em branco
+//Se o valor da variável for maior do que zero, o bloco de código será executado até que a condição se torne falsa, o que acontecerá por meio da recursividade, a qual irá reduzir o valor da variável em 1 após cada execução
+//Todas essas etapas também estão especificadas para a peça da rainha
+
 void moverTorre (int casas) {
     if(casas > 0) {
 
@@ -15,6 +20,7 @@ void moverTorre (int casas) {
     printf("\n");
 }
 
+//Quando o procedimento referente à rainha for executado, o movimento para esquerda será repetido de acordo com o número que for especificado na chamada do procedimento
 void moverRainha (int casas) {
     if(casas > 0) {
         printf("Esquerda\n");
@@ -24,6 +30,12 @@ void moverRainha (int casas) {
     printf("\n");
 }
 
+
+//Usei a mesma função void para a peça do bispo, porém, em vez de usar if, usei o loop for para criar loops aninhados, onde especifiquei a variavel referente ao eixo vertical e a variável do eixo horizontal, criei as condições de ser maior que zero para a execução dos blocos de código, e coloquei para decrementar cada variável após a execução
+//Para cada execução do loop externo, haverá uma execução completa do loop interno.
+//A variável do eixo vertical receberá seu valor na chamada de procedimento mais a frente.
+//Já que para cada execução do loop externo, haverá uma execução completa do loop interno, então, ambos os movimentos "cima" e "direita" serão executados, nesse caso, o mesmo número de vezes, uma vez que, o valor da variável do eixo horizontal recebeu valor 1 ainda no loop interno e a condição para ambas as variáveis serem executadas é terem valor maior que zero
+//Coloquei para imprimir os movimentos na mesma linha para repesentar o movimento na diagonal
 void moverBispo (int casasVerticais) {
 
 
@@ -62,29 +74,26 @@ int main() {
 
     // Implementação de Movimentação do Bispo
     // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
-    //O if vai ativar o while caso o valor digitado seja 1
-    //O while vai repetir o printf enquanto o valor da variável Bispo for menor ou igual a 5
-    //Utilizei o operador incremental para que a variável Bispo seja incrementa em 1 até que a condição da estrutura de repetição se torne falsa
-    //Como o valor inicial do Bispo é 1, haverá 5 repetições, ou seja, 5 movimentos
+   //Usei outro else-if para ativar a chamada de procedimento
+    //Quando isso acontecer, o procedimento referente ao Bispo, criado antes do int main, vai ser executado com o valor 5 armazenado na variável do eixo vertical
 
 
     if(opcao == 1) { 
     moverBispo(5);
+
     // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
-    //Usei else-if para ativar o do-while caso a opção seja o número 2
-    //O do vai imprimir o printf e incrementará o valor da Torre em 1 independente se a condição do while for verdadeira no começo, após isso, o bloco de código será executado novamente se a condição for verdadeira
-    //A condição é que o valor da Torre deve ser menor ou igual à 5, o que vai resultar em 5 repetições devido ao valor inicial 1
+    //Usei outro else-if para ativar a chamada de procedimento
+    //Quando isso acontecer, o procedimento referente à rainha, criado antes do int mains, vai ser executado com o valor 5 armazenado na variável "casas"
 
 } else if (opcao == 2) {
 
-    moverTorre(5);
+    moverTorre(5); 
 
     // Implementação de Movimentação da Rainha
     // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
-    //Usei outro else-if para ativar a estrutura de repetição for, caso a opção escolhida seja o número 3
-    //Dentro do for está o valor inicial da Rainha, a condição e o incremento
-    //A condição é que a variavél rainha deve ser menor ou igual à 8 para que o bloco de código seja executado, o que vai resultar em 8 execuções
+    //Usei outro else-if para ativar a chamada de procedimento
+    //Quando isso acontecer, o procedimento referente à rainha, criado antes do int mains, vai ser executado com o valor 8 armazenado na variável "casas"
+    
 } else if(opcao == 3) {
 
     moverRainha(8);
@@ -93,22 +102,22 @@ int main() {
     // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
     // Um loop pode representar a movimentação horizontal e outro vertical.
     //Se o usuário escolher a opção 4, o else-if dessa condição vai ser ativado
-    //Criei variavéis internas do tipo int no loop for externo e interno chamadas "casasVerticais" para representar o movimento vertical do cavalo e "casasHorizontais" para representar o movimento horizontal da peça
+    //Criei variavéis internas do tipo int no loop for externo e interno, chamadas "casasVerticais" para representar o movimento vertical do cavalo e "casasHorizontais" para representar o movimento horizontal da peça
     //As variavéis vão armazenar valores inteiros
-    //A variável do eixo vertical vai inicializar com valor zero e irá ser incrementada em 1 depois da execução do bloco de código , até que a condição de ter que ser menor do que 2 para a execução do bloco de código seja falsa
-    //Usei a função if e o código break para indicar que quando a variável do eixo vertical for igual a 1, o bloco de código do loop externo não seja mais executado, o que resultará em apenas 2 movimentos para cima e 1 movimento para Direita
-    //Usei o loop for interno para inicializar a variável do eixo horizontal com valor igual a 0, criar a condição de ter que ser menor que 3, e para incrementar o valor dela em 1 após cada execução até que a condição se torne falsa
-    //Usei a função if e o código break para indicar que quando a variável do eixo horizontal for igual a 1, o bloco de código não seja executado nessa parte, o que resultará em apenas 2 movimentos para cima e 1 movimento para Direita, uma vez que para cada execução do loop externo, há uma execução completa do loop interno
+    //A variável do eixo vertical vai inicializar com valor 1 e irá ser incrementada em 1 depois da execução do bloco de código, até que as condições de ter que ser menor do que 3 e maior do que 0 para a execução do bloco de código se tornem falsas
+    //Usei a função if e o código break para indicar que quando a variável do eixo vertical for igual a 2, o bloco de código do loop externo não seja mais executado, o que resultará em apenas 2 movimentos para cima e 1 movimento para Direita
+    //Usei o loop for interno para inicializar a variável do eixo horizontal com valor igual a 1, criar as condições de ter que ser menor que 3 e maior do que 0, e para incrementar o valor da variável em 1 após cada execução até que as condições se tornem falsas
+    //Usei a função if e o código continue para indicar que quando a variável do eixo horizontal for igual a 2, o bloco de código não seja executado nessa parte, o que resultará em apenas 2 movimentos para cima e 1 movimento para Direita, uma vez que para cada execução do loop externo, há uma execução completa do loop interno
     //Usei printf para exibir os movimentos e para colocar uma linha em branco após terminar o loop aninhado
 
 }else if (opcao == 4) { 
-   for(int casasVerticais = 0; casasVerticais < 2; casasVerticais++) {
+   for(int casasVerticais = 1; casasVerticais < 3 && casasVerticais > 0; casasVerticais++) {
 
-    if(casasVerticais == 1) break;
+    if(casasVerticais == 2) break;
 
-    for(int casasHorizontais = 0; casasHorizontais < 3; casasHorizontais++){
+    for(int casasHorizontais = 1; casasHorizontais < 4 && casasHorizontais > 0; casasHorizontais++){
 
-        if(casasHorizontais == 1) continue;
+        if(casasHorizontais == 2) continue;
 
         printf("Cima\n");
 
